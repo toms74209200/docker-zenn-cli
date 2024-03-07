@@ -1,0 +1,10 @@
+{
+  "name": "docker-zenn-cli",
+  "version": "1.0.0",
+  "description": "Check update npm dependencies for Dockerfile",
+  "author": "toms74209200",
+  "license": "MIT",
+  "dependencies": {
+    "zenn-cli": "0.1.153"
+  }
+}
