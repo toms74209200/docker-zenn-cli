@@ -8,11 +8,15 @@ on:
     - cron: "0 21 * * 2"
 
 jobs:
+  test:
+    uses: ./.github/workflows/test.yml
   build:
     runs-on: ubuntu-latest
     env:
       DOCKER_IMAGE_NAME: zenn-cli
       PLATFORMS: linux/amd64,linux/arm64
+    needs:
+      - test
     steps:
       - uses: actions/checkout@v4
         with:

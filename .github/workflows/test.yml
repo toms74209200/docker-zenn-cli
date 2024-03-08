@@ -1,0 +1,17 @@
+name: Test Zenn CLI
+
+on:
+  workflow_call:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Docker image
+        run: docker build -t zenn-cli .
+      - name: Run Zenn CLI
+        run: docker run --rm -v$(pwd):/zenn zenn-cli new:article
+      - name: Check files
+        run: ls ./articles/*.md >/dev/null 2>&1
