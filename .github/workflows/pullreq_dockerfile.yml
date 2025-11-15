@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - Dockerflie
+      - Dockerfile
 
 jobs:
   lint-dockerfile:
