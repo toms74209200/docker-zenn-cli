@@ -11,7 +11,11 @@ jobs:
       - uses: actions/checkout@v5
       - name: Build Docker image
         run: docker build -t zenn-cli .
+      - name: Create work directory
+        run: mkdir tmp
+      - name: Change user
+        run: sudo chown -R 1000:1000 tmp
       - name: Run Zenn CLI
-        run: docker run --rm -v$(pwd):/zenn -u$(id -u):$(id -g) zenn-cli new:article
+        run: docker run --rm -v$(pwd)/tmp:/zenn zenn-cli new:article
       - name: Check files
-        run: ls ./articles/*.md >/dev/null 2>&1
+        run: ls ./tmp/articles/*.md >/dev/null 2>&1
