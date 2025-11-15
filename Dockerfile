@@ -1,4 +1,7 @@
-FROM node:22-bookworm-slim
+# syntax=docker/dockerfile:1
+# check=error=true
+
+FROM node:24-trixie-slim
 
 EXPOSE 8000
 
