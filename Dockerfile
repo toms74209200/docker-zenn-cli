@@ -5,7 +5,7 @@ FROM node:24-trixie-slim
 
 EXPOSE 8000
 
-RUN npm install -g zenn-cli@0.3 \
+RUN npm install -g zenn-cli@0.4 \
     && npm cache clean --force
 
 WORKDIR /zenn
